@@ -1,0 +1,25 @@
+version: "3.2"
+services:
+  host:
+    user: ${USER}
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - USERNAME=${USER}
+        - IMAGE=${IMAGE}
+    container_name: ${COMPOSE_PROJECT_NAME}-host
+    environment:
+      - SHELL=${SHELL}
+      - TZ=${TZ}
+      - LANG=${LANG}
+      - HOST=${HOST}
+    ports:
+      - 9090:9090
+    volumes:
+      - ..:/home/${USER}/workspace:cached
+      - ${HOME}/.ssh:/home/${USER}/.ssh
+      - ${HOME}/.gitconfig:/home/${USER}/.gitconfig
+      - ${HOME}/.gnupg:/home/${USER}/.gnupg
+    working_dir: /home/${USER}/workspace/projects
+    command: sleep infinity

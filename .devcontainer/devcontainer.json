@@ -1,0 +1,25 @@
+{
+    "name": "java-devcontainer",
+    "dockerComposeFile": "../docker-compose.yml",
+    "service": "host",
+    "workspaceFolder": "/home/tienyu/workspace/java-devcontainer",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "vscjava.vscode-java-pack",
+                "eamodio.gitlens",
+                "mhutchie.git-graph",
+                "esbenp.prettier-vscode",
+                "dbaeumer.vscode-eslint"
+            ],
+            "settings": {
+                "terminal.integrated.defaultProfile.linux": "bash"
+            },
+            "profiles": {
+                "bash": {
+                    "path": "/bin/bash"
+                }
+            }
+        }
+    }
+}
